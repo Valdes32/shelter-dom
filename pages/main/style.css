@@ -21,7 +21,7 @@ a{
 .header{
 	display: flex;
 	flex-direction: column;
-	background-image: url(/assets/images/start-screen-gradient-background.png);
+	background-image: url(../../assets/images/start-screen-gradient-background.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 908px;
@@ -364,7 +364,7 @@ a{
 }
 
 footer{
-	background-image: url(/assets/images/start-screen-gradient-background.png);
+	background-image: url(../../assets/images/start-screen-gradient-background.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 350px;

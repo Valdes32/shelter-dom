@@ -21,7 +21,7 @@ a{
 .header{
 	display: flex;
 	flex-direction: column;
-	background-image: url(/assets/images/start-screen-gradient-background.png);
+	background-image: url(../../assets/images/start-screen-gradient-background.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 908px;
@@ -187,7 +187,7 @@ a{
   padding: 13px 18px 18px;
   border: 2px solid #F1CDB3;
   border-radius: 50%;
-  content: url(/assets/icons/left.svg);
+  content: url(../../assets/icons/left.svg);
 }
 
 .our-friends .right-button::after{
@@ -197,7 +197,7 @@ a{
   padding: 13px 18px 18px;
   border: 2px solid #F1CDB3;
   border-radius: 50%;
-  content: url(/assets/icons/right.svg);
+  content: url(../../assets/icons/right.svg);
 }
 
 .left-button:hover::before{
@@ -407,7 +407,7 @@ a{
 }
 
 footer{
-	background-image: url(/assets/images/start-screen-gradient-background.png);
+	background-image: url(../../assets/images/start-screen-gradient-background.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 350px;

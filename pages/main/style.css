@@ -43,7 +43,7 @@ a, ins {
 .header{
 	padding-top: 50px;
 	margin-bottom: 80px;
-	background: url(../../assets/images/noise_transparent.svg), linear-gradient(119deg, rgba(89,71,57,1) 0%, rgba(35,33,34,1) 100%);
+	background: url(/assets/images/noise_transparent.svg), linear-gradient(119deg, rgba(89,71,57,1) 0%, rgba(35,33,34,1) 100%);
 }
 .header__top{
 	margin-bottom: 60px;

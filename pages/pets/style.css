@@ -49,7 +49,7 @@ a, ins {
 		align-items: center;
 		justify-content: space-between;
 	}
-	.header__logo{
+	.header__logo,.header__header__logo{
 		cursor:default;
 		margin-top: 10px;
 		height: 60px;
@@ -58,7 +58,6 @@ a, ins {
 		flex-wrap: nowrap;
 		flex-direction: column;
 		align-items: center;
-		z-index: 2;
 	}
 	.header__logo_title{
 		margin-bottom: 8px;
@@ -190,6 +189,7 @@ a, ins {
 		column-gap: 1.7%;
 	}
 	.nav__button{
+		text-align: center;
 		font-family: 'Georgia';
 		font-style: normal;
 		font-weight: 400;
@@ -198,19 +198,23 @@ a, ins {
 		letter-spacing: 0.06em;
 		height: 52px;
 		width: 52px;
+		color:#292929;	
 		background-color: #F6F6F6;
 		border: 2px solid #F1CDB3;
 		border-radius: 50%;
 	}
 	.nav__button:hover{
+		color: #292929;
 		background-color: #FDDCC4;
 		border: 2px solid #FDDCC4;
 	}
 	.nav__button:active{
+		color:#292929;
 		background-color: #F1CDB3;
 		border: 2px solid #F1CDB3;
 	}
 	.nav__button:disabled{
+		color:#CDCDCD;
 		background-color: #F6F6F6;
 		border: 2px solid #CDCDCD;
 	}
@@ -341,18 +345,43 @@ a, ins {
 	}
 }
 	@media (max-width: 725px) {
+		.header{
+				margin-bottom: 10px;
+	  }
+		.header__logo{
+			display: none;
+		}
 		#menu__toggle {
 			opacity: 0;
 		}
 		
 		#menu__toggle:checked ~ .menu__btn > span {
 			transform: rotate(90deg);
-		}
+		}	
 		#menu__toggle:checked ~ .header__menu {
 			visibility: visible;
 			right: 0;
 		}
-		
+	
+		#menu__toggle:checked ~ .header__header__logo {
+			opacity:0;
+		}
+		.header__header__logo{
+			margin-top: -8px;
+			margin-bottom: 20px;
+		}
+		.hamburger__header__logo{
+			margin: 0 0 157px 10px;
+			cursor:default;
+			margin-top: 10px;
+			height: 60px;
+			width: 190px;
+			display: flex;
+			flex-wrap: nowrap;
+			flex-direction: column;
+			align-items: center;
+			z-index: 2;
+		}
 		.menu__btn {
 			display: flex;
 			align-items: center;
@@ -396,7 +425,7 @@ a, ins {
 			height: 100%;
 		
 			margin: 0;
-			padding: 245px 0;
+			padding: 20px 0;
 		
 			list-style: none;
 		
@@ -407,6 +436,7 @@ a, ins {
 		}
 		
 		.header__menu__item {
+			touch-action: none;
 			margin-left: 0;
 			margin-right: 0;
 			margin-bottom: 39px;

@@ -223,16 +223,11 @@ a, ins {
 }
 .slider{
 	display: flex;
-	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 60px;
-	column-gap: 1.5%;
+	column-gap: 0.5%;
 }
-
-.left {  order: 1; }
-.slider__card {  order: 2; }
-.right {  order: 3; }
 
 .slider__card{
 	margin: 0 auto;	
@@ -324,7 +319,14 @@ a, ins {
 	border-radius: 25px;
 	cursor: pointer;
 }
-
+.sleder__items{
+	height: 435px;
+	max-width: 990px;
+	display: grid;
+	gap: 60px 90px;
+	grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+	overflow: hidden;
+}	
 .our_friends-button{
 	display: block;
 	width: 261px;
@@ -499,6 +501,13 @@ a, ins {
 	letter-spacing: 0.06em;
 	color: #F1CDB3;
 }
+
+@media (max-width: 1176px) {
+	.sleder__items {
+    gap: 60px 40px;
+}
+}
+
 @media (max-width: 1052px) {
 	.header{
 		padding-top: 21px;
@@ -549,6 +558,10 @@ a, ins {
 	.our_friends {
 		padding-top: 90px;
 	}
+	.sleder__items{
+		max-width: 580px;
+		gap: 60px 40px;
+	}	
 	.box__text{
 		font-size: 16px;
 	}
@@ -558,9 +571,7 @@ a, ins {
 	.two{
 		margin-left: 1.5%;
 	}
-	.three{
-		display: none;
-	}
+
 	.help__box__ferst-line {
 		margin: 0px 34px;
     max-width: 1026px;
@@ -598,17 +609,6 @@ a, ins {
 		width: 170px;
 	}
 }
-@media (max-width: 766px) {
-	.one,.two{
-		margin-right: 0;
-		margin-left: 0;
-	}
-}
-@media (max-width: 745px) {
-	.two{
-		display: none;
-	}
-}
 
 @media (max-width: 725px) {
 	.header__top {
@@ -632,6 +632,11 @@ a, ins {
 	#menu__toggle:checked ~ .header__header__logo {
 		opacity:0;
 	}
+	.lock-scroll{
+    overflow: hidden;
+    z-index: 2;
+    position: absolute;
+	}
 	.header__header__logo{
 		margin-top: -8px;
 		margin-bottom: 20px;
@@ -652,7 +657,7 @@ a, ins {
 	.menu__btn {
 		display: flex;
 		align-items: center;
-		position: fixed;
+		position: absolute;
 		top: 45px;
 		right: 54px;
 		width: 30px;
@@ -682,7 +687,7 @@ a, ins {
 	
 	.header__menu {
 		display: block;
-		position: fixed;
+		position: absolute;
 		text-align: center;
 		visibility: hidden;
 		top: 0;
@@ -790,13 +795,13 @@ a, ins {
 		column-gap: 26.5%;
 		flex-direction: row;
 	}
-	.left {  order: 1; }
-	.slider__card {  order: 3; }
-	.right {  order: 2; }
 
 	.slider__card {
     margin-bottom: 19px;
 	}
+	.sleder__items {
+    gap: 20px 25px;
+}
 	.box__text {
   	margin-top: 0;
 	}

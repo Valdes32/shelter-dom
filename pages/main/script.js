@@ -1,3 +1,9 @@
+window.matchMedia('(max-width: 767px)').addEventListener('change', function (event) {petslist();})
+window.matchMedia('(min-width: 768px) and (max-width:1070px)').addEventListener('change', function (event) {petslist();})
+window.matchMedia('(min-width: 1279px)').addEventListener('change', function (event) {petslist();})
+
+
+
 
 let dataGlobal;
 let currentData = [];
@@ -15,8 +21,8 @@ const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + mi
 const getRandomSlides = () => {
 	let elements = [];
 	const mq = window.innerWidth;
-	if (mq > 1070) { var n = 3
-	} else if (1700 > mq && mq > 750){ var n = 2
+	if (mq > 1279) { var n = 3
+	} else if (1280 > mq && mq > 767){ var n = 2
 	} else { var n = 1}
 	while (elements.length < n) {
 		const index = randomInt(0, dataGlobal.length - 1);
@@ -145,8 +151,8 @@ document.querySelector('.slider__button.left').addEventListener('click', (e) => 
 		petsItems.insertAdjacentHTML('afterbegin', tempcard);
 	});
 	const mq = window.innerWidth;
-	if (mq > 1070) { var n = 3
-	} else if (1700 > mq && mq > 750){ var n = 2
+	if (mq > 1279) { var n = 3
+	} else if (1280 > mq && mq > 767){ var n = 2
 	} else { var n = 1}
 	const onTransitionEnd = (e) => {
 		const children = [...petsItems.children];
@@ -162,7 +168,7 @@ document.querySelector('.slider__button.left').addEventListener('click', (e) => 
 	petsItems.style.transition = '';
 
 	requestAnimationFrame(() => {
-		petsItems.style.transition = 'all 1s ease-out';
+		petsItems.style.transition = 'all 0.3s ease-out';
 		petsItems.style.transform = '';
 	});
 });
@@ -175,8 +181,8 @@ document.querySelector('.slider__button.right').addEventListener('click', (e) =>
 		petsItems.insertAdjacentHTML('beforeend', tempcard);
 	});
 	const mq = window.innerWidth;
-	if (mq > 1070) { var n = 3
-	} else if (1700 > mq && mq > 750){ var n = 2
+	if (mq > 1279) { var n = 3
+	} else if (1280 > mq && mq > 767){ var n = 2
 	} else { var n = 1}
 	const onTransitionStart = (e) => {
 		const children = [...petsItems.children];
@@ -193,7 +199,7 @@ document.querySelector('.slider__button.right').addEventListener('click', (e) =>
 	petsItems.style.transition = '';
 	
 	requestAnimationFrame(() => {
-		petsItems.style.transition = 'all 1s ease-out';
+		petsItems.style.transition = 'all 0.3s ease-out';
 		petsItems.style.transform = 'translateX(-100%)';
 	});
 });

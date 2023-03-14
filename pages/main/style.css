@@ -684,7 +684,7 @@ a, ins {
 	width: auto;
 }
 
-@media (max-width: 1070px) {
+@media (max-width: 1279px) {
 	.header{
 		padding-top: 21px;
 		max-height: 1144px;
@@ -733,9 +733,7 @@ a, ins {
 	.our_friends {
 		padding-top: 90px;
 	}
-	.slider__items{
-		gap: 20px;
-	}
+
 	.slider__card{
 		margin: 0 auto;	
 	}
@@ -803,7 +801,7 @@ a, ins {
 		margin-right: 11px;
 	}
 	.popup__name{
-		width: 260px;
+		width: auto;
 		margin: 11px 0 8px;
 		font-size: 35px;
 	}
@@ -826,10 +824,7 @@ a, ins {
     flex-wrap: wrap;
 	}
 }
-@media (max-width: 830px) {
-.slider__card{
-	margin: 0;	
-}}
+
 @media (max-width: 767px) {
 	.header__top {
     margin-bottom: 38px;
@@ -926,15 +921,12 @@ a, ins {
 		max-height: 471.77px;
 		object-fit: cover;
 	}
-	.slider__items{
-		gap: 0;
-	}
 	.slider__card{
 		margin: 0;	
 	}
 }
 
-@media (max-width: 750px) {
+@media (max-width: 767px) {
 .popup__body {
 	width: auto;
 }
@@ -952,19 +944,19 @@ a, ins {
 	display: none;
 }
 .popup__name{
-	width: 420px;
+	width: auto;
 	text-align: center;
 	margin: 11px 0 8px;
 	font-size: 35px;
 }
 .popup__breed{
-	width: 420px;
+	width: auto;
 	text-align: center;
 	margin-bottom: 23px;
 	font-size: 20px;
 }
 .popup__text{
-	width: 420px;
+	width: auto;
 	text-align: justify;
 	margin-bottom: 17px;
 	font-size: 13px;

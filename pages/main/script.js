@@ -36,7 +36,7 @@ const generateSlide = (index,item) => {
 			<div class="slider__card">
 				<img class="slider__card__photo" src="../../assets/images/${imgPhoto}">
 				<h3 class="slider__card__name">${name}</h3>
-				<button class="slider__card__button popup-link">Learn more</button>	
+					<button class="slider__card__button popup-link">Learn more</button>	
 			</div>
 		</article>
 		`;
@@ -68,6 +68,9 @@ const generateSlide = (index,item) => {
 			const breed = item.breed;
 			const imgPhoto = item.img;
 			const age = item.age;
+			const inoculations = item.inoculations;
+			const diseases = item.diseases;
+			const parasites = item.parasites;
 
 			let tempcard = `
 				<div class="popup__box">
@@ -82,9 +85,9 @@ const generateSlide = (index,item) => {
 						<div class="popup__subinfo">
 							<ul class="info__pet">
 								<li class="item"><p class="info__name">Age:</p>${age}</li>
-								<li class="item"><p class="info__name">Inoculations:</p>none</li>
-								<li class="item"><p class="info__name">Diseases:</p>none</li>
-								<li class="item"><p class="info__name">Parasites:</p>none</li>
+								<li class="item"><p class="info__name">Inoculations:</p>${inoculations}</li>
+								<li class="item"><p class="info__name">Diseases:</p>${diseases}</li>
+								<li class="item"><p class="info__name">Parasites:</p>${parasites}</li>
 							</ul>
 						</div>
 					</div>
@@ -170,15 +173,16 @@ document.querySelector('.slider__button.right').addEventListener('click', (e) =>
 			petsItems.removeChild(children[i]);
 		}
 		petsItems.removeEventListener('transitionend', onTransitionStart);
+		petsItems.style.transform = null;
+		petsItems.style.transition = null;
 	}
 	petsItems.addEventListener('transitionend', onTransitionStart)
 
-
 	petsItems.style.transform = '';
 	petsItems.style.transition = '';
-
+	
 	requestAnimationFrame(() => {
-		petsItems.style.transition = 'all 2s ease-out';
+		petsItems.style.transition = 'all 1s ease-out';
 		petsItems.style.transform = 'translateX(-100%)';
 	});
 });

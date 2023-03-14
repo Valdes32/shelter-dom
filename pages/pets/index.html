@@ -9,105 +9,35 @@
 	<title>Shelter-dom-our-pets</title>
 </head>
 <body>
-	<div class="header">
-		<div class="container">
-			<header>
-				<div class="hamburger-menu">
-					<input id="menu__toggle" type="checkbox" />
-					<label class="menu__btn" for="menu__toggle">
-						<span></span>
-					</label>
-					<div class="header__header__logo" id="logo">
-						<h1 class="header__logo_title">Cozy House</h1>
-						<p class="header__logo_suptitle">Shelter for pets in Boston</p>
-					</div>
-					<ul class="header__menu">
-						<li>
-							<div class="hamburger__header__logo">
-								<h1 class="header__logo_title">Cozy House</h1>
-								<p class="header__logo_suptitle">Shelter for pets in Boston</p>
-							</div></li>
-						<li><a class="header__menu__item" href="https://valdes32.github.io/shelter-dom/pages/main/index.html">About the shelter</a></li>
-						<li><a class="header__menu__item active" href="https://valdes32.github.io/shelter-dom/pages/pets/index.html">Our pets</a></li>
-						<li><a class="header__menu__item" href="https://valdes32.github.io/shelter-dom/pages/main/index.html#help">Help the shelter</a></li>
-						<li><a class="header__menu__item" href="https://valdes32.github.io/shelter-dom/pages/main/index.html#contacts">Contacts</a></li>
-					</ul>
-				</div>
+		<header class="header">
+			<div class="container">
 				<div class="header__top">
 					<div class="header__logo" id="logo">
-						<h1 class="header__logo_title">Cozy House</h1>
-						<p class="header__logo_suptitle">Shelter for pets in Boston</p>
+						<h1 class="logo__title">Cozy House</h1>
+						<p class="logo__suptitle">Shelter for pets in Boston</p>
 					</div>
-				<ul class="header__menu">
-					<li><a class="header__menu__item" href="https://valdes32.github.io/shelter-dom/pages/main/index.html">About the shelter</a></li>
-					<li><a class="header__menu__item active" href="https://valdes32.github.io/shelter-dom/pages/pets/index.html">Our pets</a></li>
-					<li><a class="header__menu__item" href="https://valdes32.github.io/shelter-dom/pages/main/index.html#help">Help the shelter</a></li>
-					<li><a class="header__menu__item" href="https://valdes32.github.io/shelter-dom/pages/main/index.html#contacts">Contacts</a></li>
-				</ul>
+					<!--<input id="menu__toggle" type="checkbox" />-->
+					<div class="menu__btn" for="menu__toggle">
+						<span></span>
+					</div>
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li><a href="https://valdes32.github.io/shelter-dom/pages/main/index.html" class="menu__link">About the shelter</a></li>
+							<li><a href="https://valdes32.github.io/shelter-dom/pages/pets/index.html" class="menu__link active">Our pets</a></li>
+							<li><a data-goto="#help"  href="#help" class="menu__link">Help the shelter</a></li>
+							<li><a data-goto="#contacts"  href="#contacts" class="menu__link">Contacts</a></li>
+						</ul>
+					</nav>
+				</div>
 			</div>
-			</header>
+		</header>
 		</div>
 	</div>
 	<section class="our-friends">
 		<div class="container">
 			<h2 class="our_friends__title title">Our friends who <br> are looking for a house</h2>
-				<div class="slider">
-						<a class="item" href="#">
-							<div class="slider__card zero">
-								<img class="slider__card__photo" src="../../assets/images/pets-katrine.png">
-								<h3 class="slider__card__name">Katrine</h3>
-								<button class="slider__card__button">Learn more</button>
-							</div>
-						</a>
-						<a class="item" href="#">
-							<div class="slider__card one">
-								<img class="slider__card__photo" src="../../assets/images/pets-jennifer.png">
-								<h3 class="slider__card__name">Jennifer</h3>
-								<button class="slider__card__button">Learn more</button>
-							</div>
-						</a>
-						<a class="item" href="#">
-							<div class="slider__card two">
-								<img class="slider__card__photo" src="../../assets/images/pets-woody.png">
-								<h3 class="slider__card__name">Woody</h3>
-								<button class="slider__card__button">Learn more</button>
-							</div>
-						</a>
-						<a class="item" href="#">
-							<div class="slider__card three">
-								<img class="slider__card__photo" src="../../assets/images/katrine.png">
-								<h3 class="slider__card__name">Sophia</h3>
-								<button class="slider__card__button">Learn more</button>
-							</div>
-						</a>
-						<a class="item" href="#">
-							<div class="slider__card four">
-								<img class="slider__card__photo" src="../../assets/images/pets-timmy.png">
-								<h3 class="slider__card__name">Timmy</h3>
-								<button class="slider__card__button">Learn more</button>
-							</div>
-						</a>
-						<a class="item" href="#">
-							<div class="slider__card five">
-								<img class="slider__card__photo" src="../../assets/images/pets-charly.png">
-								<h3 class="slider__card__name">Charly</h3>
-								<button class="slider__card__button">Learn more</button>
-							</div>
-						</a>
-						<a class="item" href="#">
-							<div class="slider__card six">
-								<img class="slider__card__photo" src="../../assets/images/Scarlett.png">
-								<h3 class="slider__card__name">Scarlett</h3>
-								<button class="slider__card__button">Learn more</button>
-							</div>
-						</a>
-						<a class="item" href="#">
-							<div class="slider__card seven">
-								<img class="slider__card__photo" src="../../assets/images/Freddie.png">
-								<h3 class="slider__card__name">Freddie</h3>
-								<button class="slider__card__button">Learn more</button>
-							</div>
-						</a>
+			<div class="slider__slider">
+				<div class="slider__items">
 				</div>
 				<div class="nav">
 					<button class="nav__button" disabled><<</button>
@@ -155,5 +85,9 @@
 			</div>
 		</div>
 	</footer>
+	<script src="script.js"></script>
+		<div id="popup" class="popup">
+			<div class="popup__body">
+			</div>
 </body>
 </html>

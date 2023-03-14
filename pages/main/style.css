@@ -37,13 +37,16 @@ a, ins {
 		scroll-behavior: smooth;
 	}
 
-	._lock,.lock{
+	._lock{
 		overflow: hidden;
 		position: fixed;
 		top: 0;
 		left: 0;
 		height: 100vh;
 		width: 100vw;
+	}
+	.lock{
+		overflow: hidden;
 	}
 
 .container{
@@ -799,14 +802,17 @@ a, ins {
 		margin-right: 11px;
 	}
 	.popup__name{
+		width: 260px;
 		margin: 11px 0 8px;
 		font-size: 35px;
 	}
 	.popup__breed{
+		width: 260px;
 		margin-bottom: 23px;
 		font-size: 20px;
 	}
 	.popup__text{
+		width: 260px;
 		margin-bottom: 17px;
 		font-size: 13px;
 	}
@@ -815,6 +821,8 @@ a, ins {
 	}
 	.info__pet li {
     margin-bottom: 6px;
+    display: flex;
+    flex-wrap: wrap;
 	}
 }
 
@@ -885,6 +893,7 @@ a, ins {
 		transition-duration: .25s;
 	}
 	.menu__body.active_menu {
+		top: -5px;
 		right: 0px;
 		visibility: visible;
 		box-shadow: 0 0 0 9999px rgba(41, 41, 41, 0.6);
@@ -937,16 +946,19 @@ a, ins {
 	display: none;
 }
 .popup__name{
+	width: 420px;
 	text-align: center;
 	margin: 11px 0 8px;
 	font-size: 35px;
 }
 .popup__breed{
+	width: 420px;
 	text-align: center;
 	margin-bottom: 23px;
 	font-size: 20px;
 }
 .popup__text{
+	width: 420px;
 	text-align: justify;
 	margin-bottom: 17px;
 	font-size: 13px;
@@ -1138,23 +1150,26 @@ a, ins {
 		padding: 0 10px;
 	}
 	.popup__box {
-		height: 100%;
 		width: 100%;
 		max-width:240px;
-		max-height:341px;
+		min-height:341px;
+		height: auto;
 		padding-right: 2px;
 	}
 	.popup__name{
+		width: 220px;
 		text-align: center;
 		margin: 11px 0 8px;
 		font-size: 35px;
 	}
 	.popup__breed{
+		width: 220px;
 		text-align:center;
 		margin-bottom: 0px;
 		font-size: 20px;
 	}
 	.popup__text{
+		width: 220px;
 		text-align: justify;
 		margin-bottom: 20px;
 		font-size: 13px;

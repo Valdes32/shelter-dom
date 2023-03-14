@@ -9,11 +9,17 @@ const getData = async () => {
 	return data;
 };
 
+
+
+const mq = window.matchMedia('(max-width: 1070px)')
+
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 				
 const getRandomSlides = () => {
 	let elements = [];
-	while (elements.length < 3) {
+	if (mq.matches) { var n = 2}
+	else { var n = 3}
+	while (elements.length < n) {
 		const index = randomInt(0, dataGlobal.length - 1);
 		const element = dataGlobal[index];
 		if(
@@ -139,10 +145,12 @@ document.querySelector('.slider__button.left').addEventListener('click', (e) => 
 		let tempcard = generateSlide(index, item);
 		petsItems.insertAdjacentHTML('afterbegin', tempcard);
 	});
-
+	const mq = window.matchMedia('(max-width: 1070px)')
+	if (mq.matches) { var n = 2}
+	else { var n = 3}
 	const onTransitionEnd = (e) => {
 		const children = [...petsItems.children];
-		for(let i = 3 ; i < children.length; i++) {
+		for(let i = n ; i < children.length; i++) {
 			petsItems.removeChild(children[i]);
 		}
 		petsItems.removeEventListener('transitionend', onTransitionEnd);
@@ -166,10 +174,12 @@ document.querySelector('.slider__button.right').addEventListener('click', (e) =>
 		let tempcard = generateSlide(index, item);
 		petsItems.insertAdjacentHTML('beforeend', tempcard);
 	});
-
+	const mq = window.matchMedia('(max-width: 1070px)')
+	if (mq.matches) { var n = 2}
+	else { var n = 3}
 	const onTransitionStart = (e) => {
 		const children = [...petsItems.children];
-		for(let i = 0 ; i < children.length - 3; i++) {
+		for(let i = 0 ; i < children.length - n; i++) {
 			petsItems.removeChild(children[i]);
 		}
 		petsItems.removeEventListener('transitionend', onTransitionStart);

@@ -269,7 +269,7 @@ a, ins {
 }
 
 .slider__card{
-	margin: 0 auto;	
+	/*margin: 0 auto;*/	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -332,6 +332,9 @@ a, ins {
 	height: 6px;
 	transform: rotate(180deg);
 	flex-grow: 0;
+}
+.slider__card {
+	margin: 0 auto;
 }
 .slider__card__name{
 	font-family: 'Georgia';
@@ -681,14 +684,7 @@ a, ins {
 	width: auto;
 }
 
-@media (max-width: 1208px) {
-	.slider__items{
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-
-@media (max-width: 1052px) {
+@media (max-width: 1070px) {
 	.header{
 		padding-top: 21px;
 		max-height: 1144px;
@@ -738,8 +734,13 @@ a, ins {
 		padding-top: 90px;
 	}
 	.slider__items{
-		grid-template-columns: repeat(2, 1fr);
-		gap: 40px;
+		gap: 20px;
+	}
+	.slider__card{
+		margin: 0 auto;	
+	}
+	.slider__item {
+   width: 50%;
 	}
 	.box__text{
 		font-size: 20px;
@@ -825,7 +826,10 @@ a, ins {
     flex-wrap: wrap;
 	}
 }
-
+@media (max-width: 830px) {
+.slider__card{
+	margin: 0;	
+}}
 @media (max-width: 767px) {
 	.header__top {
     margin-bottom: 38px;
@@ -923,12 +927,14 @@ a, ins {
 		object-fit: cover;
 	}
 	.slider__items{
-		grid-template-columns: repeat(1, 1fr);
-		gap: 40px;
+		gap: 0;
+	}
+	.slider__card{
+		margin: 0;	
 	}
 }
 
-@media (max-width: 727px) {
+@media (max-width: 750px) {
 .popup__body {
 	width: auto;
 }
@@ -968,6 +974,12 @@ a, ins {
 }
 .info__pet li {
 	margin-bottom: 6px;
+}
+.slider__item {
+	width: 100%;
+}
+.slider__card {
+	margin: 0 auto;
 }
 }
 

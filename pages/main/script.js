@@ -95,13 +95,13 @@ const generateSlide = (index,item) => {
 			document.body.classList.add('lock');
 	}
 
+
 	function closeModal() {
-		const popup = document.querySelector('.popup__body');
+	const popup = document.querySelector('.popup__body');
 		popup.innerHTML = '';
 		document.querySelector('.popup').classList.remove('open');
 		document.body.classList.remove('lock');
 	}
-
 	
 // Меню бургер
 const iconMenu = document.querySelector('.menu__btn');
@@ -151,7 +151,7 @@ document.querySelector('.slider__button.left').addEventListener('click', (e) => 
 	petsItems.style.transition = '';
 
 	requestAnimationFrame(() => {
-		petsItems.style.transition = 'all 2s ease-out';
+		petsItems.style.transition = 'all 1s ease-out';
 		petsItems.style.transform = '';
 	});
 });
@@ -166,7 +166,7 @@ document.querySelector('.slider__button.right').addEventListener('click', (e) =>
 
 	const onTransitionStart = (e) => {
 		const children = [...petsItems.children];
-		for(let i = 3 ; i < children.length; i++) {
+		for(let i = 0 ; i < children.length - 3; i++) {
 			petsItems.removeChild(children[i]);
 		}
 		petsItems.removeEventListener('transitionend', onTransitionStart);
@@ -174,11 +174,11 @@ document.querySelector('.slider__button.right').addEventListener('click', (e) =>
 	petsItems.addEventListener('transitionend', onTransitionStart)
 
 
-	petsItems.style.transform = 'translateX(100%)';
+	petsItems.style.transform = '';
 	petsItems.style.transition = '';
 
 	requestAnimationFrame(() => {
 		petsItems.style.transition = 'all 2s ease-out';
-		petsItems.style.transform = '';
+		petsItems.style.transform = 'translateX(-100%)';
 	});
 });

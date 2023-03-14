@@ -108,16 +108,15 @@ const generateSlide = (index,item) => {
 			document.querySelector('.popup').classList.add('open');
 			document.body.classList.add('lock');
 	}
-
-
-	function closeModal() {
-	const popup = document.querySelector('.popup__body');
+		function closeModal() {
+		const popup = document.querySelector('.popup__body');
 		popup.innerHTML = '';
 		document.querySelector('.popup').classList.remove('open');
 		document.body.classList.remove('lock');
 	}
+
 	
-// Меню бургер
+/*Меню бургер*/
 const iconMenu = document.querySelector('.menu__btn');
 const logoMenu = document.querySelector('.header__logo');
 const menuBody = document.querySelector('.menu__body');
@@ -141,7 +140,7 @@ const menu = document.querySelector('.menu__btn');
 		}
 	})
 
-
+/*кнопки слайдера*/
 
 document.querySelector('.slider__button.left').addEventListener('click', (e) => {
 	const petsItems = document.querySelector('.slider__items');

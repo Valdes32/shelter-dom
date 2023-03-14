@@ -6,7 +6,7 @@
 	"breed": "British Shorthair",
 	"description": "Katrine is a beautiful girl. She is as soft as the finest velvet with a thick lush fur. Will love you until the last breath she takes as long as you are the one. She is picky about her affection. She loves cuddles and to stretch into your hands for a deeper relaxations.",
 	"age": "6 months",
-	"inoculations": ["panleukopenia"],
+	"inoculations": ["none"],
 	"diseases": ["none"],
 	"parasites": ["none"]
 }, 
@@ -28,7 +28,7 @@
 	"breed": "Golden Retriever",
 	"description": "Woody is a handsome 3 1/2 year old boy. Woody does know basic commands and is a smart pup. Since he is on the stronger side, he will learn a lot from your training. Woody will be happier when he finds a new family that can spend a lot of time with him.",
 	"age": "3 years 6 months",
-	"inoculations": ["adenovirus", "distemper"],
+	"inoculations": ["adenovirus"],
 	"diseases": ["none"],
 	"parasites": ["none"]
 }, 
@@ -61,9 +61,9 @@
 	"breed": "Jack Russell Terrier",
 	"description": "This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. Charly has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.",
 	"age": "8 years",
-	"inoculations": ["leptospirosis"],
-	"diseases": ["deafness", "blindness"],
-	"parasites": ["lice", "fleas"]
+	"inoculations": ["none"],
+	"diseases": ["blindness"],
+	"parasites": ["lice", " fleas"]
 }, 
 {
 	"name": "Scarlett",

@@ -18,6 +18,7 @@
 						<h1 class="logo__title">Cozy House</h1>
 						<p class="logo__suptitle">Shelter for pets in Boston</p>
 					</div>
+					<div class="menu__area"></div>
 					<!--<input id="menu__toggle" type="checkbox" />-->
 					<div class="menu__btn" for="menu__toggle">
 						<span></span>
@@ -172,7 +173,8 @@
 			</div>
 		</footer>
 		<script src="script.js"></script>
-		<div id="popup" class="popup" onclick="closeModal()">
+		<div id="popup" class="popup" >
+			<a class="popup__area" onclick="closeModal()" onmouseover="changeItem()" onmouseout="rechangeItem()"></a>
 			<div class="popup__body">
 			</div>
 		</div>

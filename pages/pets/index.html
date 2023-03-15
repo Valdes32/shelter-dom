@@ -16,6 +16,7 @@
 						<h1 class="logo__title">Cozy House</h1>
 						<p class="logo__suptitle">Shelter for pets in Boston</p>
 					</div>
+					<div class="menu__area"></div>
 					<!--<input id="menu__toggle" type="checkbox" />-->
 					<div class="menu__btn" for="menu__toggle">
 						<span></span>
@@ -39,13 +40,13 @@
 			<div class="slider__slider">
 				<div class="slider__items">
 				</div>
-				<div class="nav">
-					<button class="nav__button" disabled><<</button>
-					<button class="nav__button" disabled><</button>
-					<button class="nav__button number-page">1</button>	
-					<button class="nav__button">></button>
-					<button class="nav__button">>></button>
-				</div>
+		</div>
+		<div class="nav">
+			<button class="nav__button" disabled><<</button>
+			<button class="nav__button" disabled><</button>
+			<button class="nav__button number-page">1</button>	
+			<button class="nav__button">></button>
+			<button class="nav__button">>></button>
 		</div>
 	</section>
 	<footer class="footer" id="contacts">
@@ -86,8 +87,10 @@
 		</div>
 	</footer>
 	<script src="script.js"></script>
-		<div id="popup" class="popup">
-			<div class="popup__body">
-			</div>
+	<div id="popup" class="popup" >
+		<a class="popup__area" onclick="closeModal()" onmouseover="changeItem()" onmouseout="rechangeItem()"></a>
+		<div class="popup__body">
+		</div>
+	</div>
 </body>
 </html>

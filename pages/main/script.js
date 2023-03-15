@@ -82,17 +82,18 @@ const generateSlide = (index,item) => {
 			const inoculations = item.inoculations;
 			const diseases = item.diseases;
 			const parasites = item.parasites;
+			const description = item.description;
 
 			let tempcard = `
 				<div class="popup__box">
-					<button class="popup__close close-popup" onclick="closeModal()"><img class="button__close" src="../../assets/icons/vector.svg"></button>
+					<button class="popup__close close-popup" onclick="closeModal()" onmouseover="changeItem()" onmouseout="rechangeItem()"><img class="button__close" src="../../assets/icons/vector.svg"></button>
 					<img class="popup__img" src="../../assets/images/${imgPhoto}">
 					<div class="popup__content">
 						<div class="popup__info">
 							<h2 class="popup__name">${name}</h2>
 							<h3 class="popup__breed">${type} - ${breed}</h3>
-							<p class="popup__text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
-						</div>
+							<p class="popup__text">${description}</p>
+							</div>
 						<div class="popup__subinfo">
 							<ul class="info__pet">
 								<li class="item"><p class="info__name">Age:</p>${age}</li>
@@ -120,12 +121,14 @@ const generateSlide = (index,item) => {
 const iconMenu = document.querySelector('.menu__btn');
 const logoMenu = document.querySelector('.header__logo');
 const menuBody = document.querySelector('.menu__body');
+const menuArea = document.querySelector('.menu__area');
 if (iconMenu){
 	iconMenu.addEventListener("click", function (e){
 		document.body.classList.toggle('_lock')
 		iconMenu.classList.toggle('active_icon');
 		menuBody.classList.toggle('active_menu');
 		logoMenu.classList.toggle('logo_active');
+		menuArea.classList.toggle('area_active');
 	});
 }
 
@@ -137,6 +140,7 @@ const menu = document.querySelector('.menu__btn');
 			iconMenu.classList.remove('active_icon');
 			menuBody.classList.remove('active_menu');
 			logoMenu.classList.remove('logo_active');
+			menuArea.classList.remove('area_active');
 		}
 	})
 
@@ -202,3 +206,10 @@ document.querySelector('.slider__button.right').addEventListener('click', (e) =>
 		petsItems.style.transform = 'translateX(-100%)';
 	});
 });
+
+function changeItem() {
+  document.querySelector('.popup__close').style.background= '#FDDCC4';
+}
+function rechangeItem() {
+  document.querySelector('.popup__close').style.background= 'none';
+}

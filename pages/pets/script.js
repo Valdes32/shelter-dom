@@ -1,3 +1,4 @@
+
 let dataGlobal;
 let currentData = [];
 
@@ -8,11 +9,16 @@ const getData = async () => {
 	return data;
 };
 
+
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 				
 const getRandomSlides = () => {
 	let elements = [];
-	while (elements.length < 8) {
+	const mq = window.innerWidth;
+	if (mq > 1279) { var n = 8
+	} else if (1280 > mq && mq > 767){ var n = 6
+	} else { var n = 3}
+	while (elements.length < n) {
 		const index = randomInt(0, dataGlobal.length - 1);
 		const element = dataGlobal[index];
 		if(
@@ -45,6 +51,7 @@ const generateSlide = (index,item) => {
 		await getData();
 		console.log(dataGlobal);
 		petslist();
+
 	})();
 
 	function petslist () {
@@ -55,6 +62,7 @@ const generateSlide = (index,item) => {
 			petsItems.insertAdjacentHTML('beforeend', tempcard);
 		});	
 	};
+
 
 	function openModal(event) {
 		const popup = document.querySelector('.popup__body');
@@ -70,16 +78,17 @@ const generateSlide = (index,item) => {
 			const inoculations = item.inoculations;
 			const diseases = item.diseases;
 			const parasites = item.parasites;
+			const description = item.description;
 
 			let tempcard = `
-				<div class="popup__box">
-					<button class="popup__close close-popup" onclick="closeModal()"><img class="button__close" src="../../assets/icons/vector.svg"></button>
+					<div class="popup__box">
+					<button class="popup__close close-popup" onclick="closeModal()" onmouseover="changeItem()" onmouseout="rechangeItem()"><img class="button__close" src="../../assets/icons/vector.svg"></button>
 					<img class="popup__img" src="../../assets/images/${imgPhoto}">
 					<div class="popup__content">
 						<div class="popup__info">
 							<h2 class="popup__name">${name}</h2>
 							<h3 class="popup__breed">${type} - ${breed}</h3>
-							<p class="popup__text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+							<p class="popup__text">${description}</p>
 						</div>
 						<div class="popup__subinfo">
 							<ul class="info__pet">
@@ -109,12 +118,14 @@ const generateSlide = (index,item) => {
 const iconMenu = document.querySelector('.menu__btn');
 const logoMenu = document.querySelector('.header__logo');
 const menuBody = document.querySelector('.menu__body');
+const menuArea = document.querySelector('.menu__area');
 if (iconMenu){
 	iconMenu.addEventListener("click", function (e){
 		document.body.classList.toggle('_lock')
 		iconMenu.classList.toggle('active_icon');
 		menuBody.classList.toggle('active_menu');
 		logoMenu.classList.toggle('logo_active');
+		menuArea.classList.toggle('area_active');
 	});
 }
 
@@ -126,6 +137,15 @@ const menu = document.querySelector('.menu__btn');
 			iconMenu.classList.remove('active_icon');
 			menuBody.classList.remove('active_menu');
 			logoMenu.classList.remove('logo_active');
+			menuArea.classList.remove('area_active');
 		}
 	})
 
+	function changeItem() {
+		document.querySelector('.popup__close').style.background= '#FDDCC4';
+	}
+	function rechangeItem() {
+		document.querySelector('.popup__close').style.background = 'none';
+	}
+
+	

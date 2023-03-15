@@ -98,6 +98,18 @@ a, ins {
 	line-height: 160%;
 	letter-spacing: 0.1em
 }
+.menu__area{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+	visibility: hidden;
+}
+.area_active{
+visibility: visible;
+}
+
 .menu__body{
 	margin-top: 6px;
 }
@@ -283,6 +295,7 @@ a, ins {
 .slider__card__photo{
 	width: 270px;
 	height: 270px;
+	border-radius: 9px 9px 0 0;
 }
 .slider__card:hover{
 	background-color:#ffffff;
@@ -550,6 +563,7 @@ a, ins {
 	overflow-x: hidden;
 	transition: all 0.3s ease 0s;
 }
+
 .popup.open{
 	opacity: 1;
 	visibility: visible;
@@ -568,7 +582,8 @@ a, ins {
 	width: 52px;
 	border: 2px #F1CDB3 solid;
 	border-radius: 50%;
-	background-color: rgba(41, 41, 41, 0);
+	background: rgba(41, 41, 41, 0);
+	cursor: pointer;
 }
 .button__close{
 	position: absolute;
@@ -577,7 +592,15 @@ a, ins {
 	height: 12px;
 	width: 12px;
 }
-.popup__close:hover{
+.popup__area{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+}
+
+.popup__close:hover {
 	background: #FDDCC4;
 }
 .popup__close:active{
@@ -588,14 +611,13 @@ a, ins {
 	position: relative;
 	max-width: 900px;
 	width: 100%;
-	min-height: 100%;
+	height: 500px;
 	display: flex;
 	align-items: center;
 	justify-self: center;
-	margin: 0 auto;
+	margin: auto;
 	opacity: 1;
 	transition: all 0.3s ease 0s;
-	transform: translate(0px, -20px);
 }
 .popup__box{
 	position: relative;
@@ -848,6 +870,7 @@ a, ins {
 		height: 30px;
 		cursor: pointer;
 		z-index: 6;
+		transition: all 0.3s ease 0s;
 	}
 	
 	.menu__btn > span,

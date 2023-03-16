@@ -33,7 +33,9 @@ a, ins {
 	text-decoration: none;
 	color:#545454;
 	}
-
+html{
+	scroll-behavior: smooth;
+}
 	._lock{
 		overflow: hidden;
 		position: fixed;
@@ -187,11 +189,11 @@ a, ins {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-}
-.slider__item {
-	width: 25%;
-	flex-shrink: 0;
-}
+	}
+	.slider__item {
+		width: 25%;
+		flex-shrink: 0;
+	}
 	.slider__card__photo{
 		width: 270px;
 		height: 270px;

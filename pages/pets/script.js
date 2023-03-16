@@ -8,8 +8,7 @@ const mq = window.innerWidth;
 	const res = [];
 	let pages;
 	let currentPage = 0;
-	let lastPage = 48 / count -1;
-
+	let lastPage;
 
 const getData = async () => {
 	const response = await fetch("../../assets/json/pets.json");
@@ -31,22 +30,9 @@ const getData = async () => {
 		</article>
 		`;
 	}
-	/* нумерация страницы */
-	const number = document.querySelector('.number-page');
-	number.innerText = currentPage+1;
-	
-	/* первая страница */
-	const first = document.querySelector('.first');
-	/* следующаая старница */
-	const next = document.querySelector('.next');
-	/* предыдущая страница */
-	const previous = document.querySelector('.previous');
-	/* последняя старница */
-	const last = document.querySelector('.last');
 
 	(async () => {
 		await getData();
-		console.log(dataGlobal);
 		displayList();
 	})();
 
@@ -75,23 +61,20 @@ function displayList() {
 			res.push(...tail2);
 		}
 	}
-	console.log(res);
+
+		lastPage = res.length / count -1;
+
 
 		let array = res
 		let page_size = count
 		pages = paginate(array, page_size)
 
-		console.log(pages)    // all pages
-		console.log(pages[4]) // second page
-
 		pages.forEach(page => {
 			let pageEl = ''
 			page.forEach((item,index) => {
 				pageEl += generateCard(item, index);
-				
-				console.log(item);
 			});	
-			petsItems.insertAdjacentHTML('beforeend', '<div>' + pageEl + '</div>');
+			petsItems.insertAdjacentHTML('beforeend', '<div class="page">' + pageEl + '</div>');
 		});
 
 		
@@ -108,13 +91,12 @@ function displayList() {
 		}, [])
 	}
 
-
-
 	function openModal(event) {
 		const popup = document.querySelector('.popup__body');
 
 			const { index } = event.currentTarget.dataset;
-			const item = res[index];
+			//const item = res[index];
+			const item = pages[currentPage][index];
 			const name = item.name;
 			const type = item.type;
 			const breed = item.breed;
@@ -193,6 +175,12 @@ const menu = document.querySelector('.menu__btn');
 		document.querySelector('.popup__close').style.background = '';
 	}
 	
+
+
+	const number = document.querySelector('.number-page');
+	number.innerText = currentPage+1;
+
+
 	const buttonFirst = document.querySelector('.nav__button.first');
 	const buttonPrevious = document.querySelector('.nav__button.previous');
 	if (currentPage == 0 ) {
@@ -205,15 +193,76 @@ const menu = document.querySelector('.menu__btn');
 
 	const buttonNext = document.querySelector('.nav__button.next');
 	const buttonLast = document.querySelector('.nav__button.last');
-	if (currentPage == lastPage) {
-		buttonNext.disabled = true;
-		buttonLast.disabled = true;
-	} 
-	else {buttonNext.disabled = false;
-				buttonLast.disabled = false;
-	}
+/* кнопки пагинации */
 
 	buttonLast.addEventListener('click', function(e) {
+		const petsItems = document.querySelector('.slider__items');
+		const pageWidth = petsItems.children[0].clientWidth;
 		currentPage = lastPage;
-		alert(currentPage);
+		petsItems.style.transform = 'translateX(-' + (currentPage * pageWidth) + 'px)';
+		petsItems.style.transition = 'all 0.3s ease-out';
+		number.innerText = currentPage+1;
+		if (currentPage == lastPage) {
+			buttonNext.disabled = true;
+			buttonLast.disabled = true;
+			buttonFirst.disabled = false;
+			buttonPrevious.disabled = false;
+		} 
+		else{buttonFirst.disabled = false;
+			buttonPrevious.disabled = false;}
 	});
+
+	buttonNext.addEventListener('click', function(e) {
+		const petsItems = document.querySelector('.slider__items');
+		currentPage = Math.max(0, currentPage + 1);
+		const pageWidth = petsItems.children[0].clientWidth;
+		petsItems.style.transform = 'translateX(-' + (currentPage * pageWidth) + 'px)';
+		petsItems.style.transition = 'all 0.3s ease-out';
+		number.innerText = currentPage+1;
+		if (currentPage == lastPage) {
+			buttonNext.disabled = true;
+			buttonLast.disabled = true;
+			buttonFirst.disabled = false;
+			buttonPrevious.disabled = false;
+		} 
+		else{buttonFirst.disabled = false;
+			buttonPrevious.disabled = false;}
+	});
+
+
+	buttonPrevious.addEventListener('click', function(e) {
+		const petsItems = document.querySelector('.slider__items');
+		const pageWidth = petsItems.children[0].clientWidth;
+		currentPage = Math.max(0, currentPage - 1)
+		petsItems.style.transform = 'translateX(-' + (currentPage * pageWidth) + 'px)';;
+		petsItems.style.transition = 'all 0.3s ease-out';
+		number.innerText = currentPage+1;
+		if (currentPage == 0 ) {
+			buttonFirst.disabled = true;
+			buttonPrevious.disabled = true;
+			buttonNext.disabled = false;
+			buttonLast.disabled = false;
+		} 
+		else{buttonNext.disabled = false;
+			buttonLast.disabled = false;}
+	});
+
+	buttonFirst.addEventListener('click', function(e) {
+		const petsItems = document.querySelector('.slider__items');
+		currentPage = 0;
+		const pageWidth = petsItems.children[0].clientWidth;
+		petsItems.style.transform = 'translateX(-' + (currentPage * pageWidth) + 'px)';
+		petsItems.style.transition = 'all 0.3s ease-out';
+		number.innerText = currentPage+1;
+		if (currentPage == 0 ) {
+			buttonFirst.disabled = true;
+			buttonPrevious.disabled = true;
+			buttonNext.disabled = false;
+			buttonLast.disabled = false;
+		} 
+		else{buttonNext.disabled = false;
+			buttonLast.disabled = false;}
+	});
+
+		/* нумерация страницы */
+		

@@ -1,6 +1,15 @@
+const mq = window.innerWidth;
+		if (mq > 1279) { var count = 8
+		} else if (1280 > mq && mq > 767){ var count = 6
+		} else { var count = 3}
 
-let dataGlobal;
-let currentData = [];
+	let dataGlobal;
+	let currentData = [];
+	const res = [];
+	let pages;
+	let currentPage = 0;
+	let lastPage = 48 / count -1;
+
 
 const getData = async () => {
 	const response = await fetch("../../assets/json/pets.json");
@@ -8,31 +17,7 @@ const getData = async () => {
 	dataGlobal = data;
 	return data;
 };
-
-
-const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-				
-const getRandomSlides = () => {
-	let elements = [];
-	const mq = window.innerWidth;
-	if (mq > 1279) { var n = 8
-	} else if (1280 > mq && mq > 767){ var n = 6
-	} else { var n = 3}
-	while (elements.length < n) {
-		const index = randomInt(0, dataGlobal.length - 1);
-		const element = dataGlobal[index];
-		if(
-			!elements.find(el => el[1] === element) &&
-			!currentData.find(el => el[1] === element)
-		){
-				elements.push([index,element]);
-			} 
-	}
-	currentData = elements;
-	return elements;
-}
-
-const generateSlide = (index,item) => {
+	const generateCard = (item,index) => {
 		const name = item.name;
 		const imgPhoto = item.img;
 
@@ -45,31 +30,91 @@ const generateSlide = (index,item) => {
 			</div>
 		</article>
 		`;
-}
+	}
+	/* нумерация страницы */
+	const number = document.querySelector('.number-page');
+	number.innerText = currentPage+1;
+	
+	/* первая страница */
+	const first = document.querySelector('.first');
+	/* следующаая старница */
+	const next = document.querySelector('.next');
+	/* предыдущая страница */
+	const previous = document.querySelector('.previous');
+	/* последняя старница */
+	const last = document.querySelector('.last');
 
 	(async () => {
 		await getData();
 		console.log(dataGlobal);
-		petslist();
-
+		displayList();
 	})();
 
-	function petslist () {
-		const petsItems = document.querySelector('.slider__items');
 
-		getRandomSlides().forEach(([index,item]) => {
-			let tempcard = generateSlide(index, item);
-			petsItems.insertAdjacentHTML('beforeend', tempcard);
-		});	
-	};
+
+/* Рандомный массив */
+function displayList() {
+	const m_chunk = 6;
+	const l_chunk = 8;
+	let a = dataGlobal;
+	const petsItems = document.querySelector('.slider__items');
+	const loop = 8 * 3;
+
+	while (res.length !== l_chunk * 6) {
+		if (res.length % loop === 0) {
+			a = a.sort(() => Math.random() - 0.5); // перемешивание массива
+			res.push(...a);
+		} else {
+			let n1 = res.length % m_chunk === 0 ? res.length % l_chunk : res.length % m_chunk;
+			const tail1 = res.slice(-n1);
+			const a_rest = a.filter(x => !tail1.includes(x));
+			let n2 = m_chunk - n1;
+			const head = a_rest.slice(0, n2).sort(() => Math.random() - 0.5);
+			res.push(...head);
+			const tail2 = [...tail1, ...a_rest.slice(n2)].sort(() => Math.random() - 0.5);
+			res.push(...tail2);
+		}
+	}
+	console.log(res);
+
+		let array = res
+		let page_size = count
+		pages = paginate(array, page_size)
+
+		console.log(pages)    // all pages
+		console.log(pages[4]) // second page
+
+		pages.forEach(page => {
+			let pageEl = ''
+			page.forEach((item,index) => {
+				pageEl += generateCard(item, index);
+				
+				console.log(item);
+			});	
+			petsItems.insertAdjacentHTML('beforeend', '<div>' + pageEl + '</div>');
+		});
+
+		
+}
+
+
+	function paginate (arr, size) {
+		return arr.reduce((acc, val, i) => {
+			let idx = Math.floor(i / size)
+			let page = acc[idx] || (acc[idx] = [])
+			page.push(val)
+	
+			return acc
+		}, [])
+	}
+
 
 
 	function openModal(event) {
 		const popup = document.querySelector('.popup__body');
 
-		const { index } = event.currentTarget.dataset;
-		const item = dataGlobal[index];
-
+			const { index } = event.currentTarget.dataset;
+			const item = res[index];
 			const name = item.name;
 			const type = item.type;
 			const breed = item.breed;
@@ -145,7 +190,30 @@ const menu = document.querySelector('.menu__btn');
 		document.querySelector('.popup__close').style.background= '#FDDCC4';
 	}
 	function rechangeItem() {
-		document.querySelector('.popup__close').style.background = 'none';
+		document.querySelector('.popup__close').style.background = '';
+	}
+	
+	const buttonFirst = document.querySelector('.nav__button.first');
+	const buttonPrevious = document.querySelector('.nav__button.previous');
+	if (currentPage == 0 ) {
+		buttonFirst.disabled = true;
+		buttonPrevious.disabled = true;
+	} 
+	else {buttonFirst.disabled = false;
+			buttonPrevious.disabled = false;
 	}
 
-	
+	const buttonNext = document.querySelector('.nav__button.next');
+	const buttonLast = document.querySelector('.nav__button.last');
+	if (currentPage == lastPage) {
+		buttonNext.disabled = true;
+		buttonLast.disabled = true;
+	} 
+	else {buttonNext.disabled = false;
+				buttonLast.disabled = false;
+	}
+
+	buttonLast.addEventListener('click', function(e) {
+		currentPage = lastPage;
+		alert(currentPage);
+	});

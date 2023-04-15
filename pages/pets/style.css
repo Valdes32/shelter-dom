@@ -648,8 +648,8 @@ html{
 		
 		.menu__body {
 			visibility: hidden;
-			top:0;
-			right: 100%;
+			top:-200%;
+			right: 0;
 			display: block;
 			position: absolute;
 			text-align: center;
@@ -662,8 +662,7 @@ html{
 			transition-duration: .25s;
 		}
 		.menu__body.active_menu {
-			top: -5px;
-			right: 0px;
+			top: 0px;
 			visibility: visible;
 			box-shadow: 0 0 0 9999px rgba(41, 41, 41, 0.6);
 			transform: translateX(0);
